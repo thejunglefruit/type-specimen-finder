@@ -1,0 +1,4 @@
+fonttools>=4.40
+pillow>=10
+pymupdf>=1.23  # optional: checks that every specimen loaded its font
+pytest>=7      # tests only
