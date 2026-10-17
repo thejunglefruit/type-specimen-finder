@@ -90,8 +90,4 @@ The tests use four fonts under the SIL Open Font License, bundled in `tests/font
 
 Designed and directed by a motion and creative technologist, with code written in pair with an AI coding agent. The measuring rules come from real use: choosing a title typeface among ~800 families.
 
----
-
-**En español:** escribe una palabra en todas las tipografías de tu ordenador que cumplan unos requisitos (por ejemplo, palo seco y gruesas) y saca un PDF de muestras listo para imprimir. No se fía del nombre de la fuente: mide el dibujo real de las letras (el grosor del asta de la `n` y el ensanche de la `I`).
-
 Licence: GPL-3.0-or-later (see `LICENSE`) · fonts in `tests/fonts` under OFL 1.1
