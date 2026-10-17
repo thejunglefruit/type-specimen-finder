@@ -22,7 +22,19 @@ python specimen.py --search "grotesk"           # what is installed, with its me
 python specimen.py "Hello" --selection picks.txt --per-page 6   # a shortlist, no filters
 ```
 
-Output (in `out/`): `Hello_specimen.pdf` (cover, alphabetical list, list by weight, licences, specimen sheets), `Hello_list.txt` and `Hello_licences.csv` (for a spreadsheet). It needs Chrome, Chromium or Edge to print the PDF (headless), and works on Windows, macOS and Linux.
+Output (in `out/`): `Hello_specimen.pdf` (cover, alphabetical list, list by weight, licences, specimen sheets), `Hello_list.txt`, `Hello_licences.csv` (for a spreadsheet) and `Hello_illustrator.json` (for Illustrator, below). It needs Chrome, Chromium or Edge to print the PDF (headless), and works on Windows, macOS and Linux.
+
+On Windows, double-click `specimen.bat`: it installs the requirements the first time, asks for the word and the minimum stem, and opens the PDF.
+
+## In Illustrator
+
+`illustrator/TypeSpecimen.jsx` turns the same selection into a working document: a new Illustrator file with one artboard per typeface, the word set as live, editable text in that face and a caption with its name, licence and measured stem. Retype the word, change the size or copy an artboard into a layout; nothing is outlined.
+
+1. Run `specimen.py` (or `specimen.bat`) as above; it writes `out/<word>_illustrator.json`.
+2. In Illustrator: *File > Scripts > Other Script...*, pick `TypeSpecimen.jsx`, then pick the JSON.
+   To have it in the *Scripts* menu, copy it to Illustrator's `Presets/<language>/Scripts` folder and restart.
+
+Faces are matched by PostScript name, then by family and style; any face Illustrator cannot find (not activated, or named differently) is listed at the end instead of being set in a fallback font. The script only creates new documents, never touches the ones already open, and splits a long list over several documents (about 470 artboards each, the size of the canvas). Tested with Illustrator 2026: 777 typefaces in 25 seconds.
 
 ## Licences and foundries
 

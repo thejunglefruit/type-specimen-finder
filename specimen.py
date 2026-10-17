@@ -848,6 +848,28 @@ def write_csv(rows, path):
     return path
 
 
+def postscript_name(r):
+    """PostScript name (name ID 6): what Illustrator and other apps use to pick the face."""
+    try:
+        tt = TTFont(r["path"], fontNumber=r["i"], lazy=True)
+        return tt["name"].getDebugName(6) or ""
+    except Exception:
+        return ""
+
+
+def write_illustrator_json(rows, word, path):
+    """The chosen faces for illustrator/TypeSpecimen.jsx: one artboard per face, the word as live text."""
+    faces = []
+    for r in rows:
+        L = licence_of(r)
+        faces.append({"name": display_name(r), "family": r["fam"], "style": r["sub"],
+                      "postscript": postscript_name(r), "stem": round(r["stem"], 3),
+                      "licence": L["licence"], "foundry": L["foundry"]})
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump({"word": word, "faces": faces}, fh, ensure_ascii=True, indent=1)
+    return path
+
+
 # ===================================================================== 4. cli
 def parse_args(argv=None):
     ap = argparse.ArgumentParser(
@@ -949,8 +971,11 @@ def main(argv=None):
             fh.write("%4d  %-52s stem %.2f  %-7s %-7s %-34s %s\n"
                      % (i, display_name(r), r["stem"], weight_label(r), origin(r), L["licence"], L["home"]))
     csv_path = write_csv(chosen, os.path.join(op.out, base + ("_shortlist" if op.selection else "") + "_licences.csv"))
+    ai_json = write_illustrator_json(chosen, op.word, os.path.join(
+        op.out, base + ("_shortlist" if op.selection else "") + "_illustrator.json"))
     print(txt)
     print(csv_path)
+    print(ai_json)
     if op.list_only:
         return chosen
 

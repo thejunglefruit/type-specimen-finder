@@ -128,6 +128,14 @@ def test_licence_csv(tmp_path):
     assert "SIL OFL 1.1" in (tmp_path / "Hello_list.txt").read_text(encoding="utf-8")
 
 
+def test_illustrator_json(tmp_path):
+    import json
+    S.main(["Hello", "--fonts-dir", FONTS, "--out", str(tmp_path), "--list-only"])
+    data = json.loads((tmp_path / "Hello_illustrator.json").read_text(encoding="ascii"))
+    assert data["word"] == "Hello"
+    assert [f["postscript"] for f in data["faces"]] == ["ArchivoExpanded-Black", "BricolageGrotesque-ExtraBold"]
+    assert all(f["licence"] == "SIL OFL 1.1" and f["stem"] > 0.25 for f in data["faces"])
+
 @pytest.mark.skipif(not S.find_browser(), reason="needs Chrome, Chromium or Edge")
 def test_pdf_has_every_specimen_in_its_own_font(tmp_path):
     pytest.importorskip("pymupdf")
