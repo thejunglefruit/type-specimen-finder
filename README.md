@@ -98,9 +98,9 @@ python -m pytest tests
 
 The tests use four fonts under the SIL Open Font License, bundled in `tests/fonts` (licence and copyrights in `tests/fonts/OFL.txt`): two heavy sans serifs that must be kept, a medium sans serif that must be dropped as too light, and a heavy serif that must be dropped for its serifs. They also check the licence classification (including personal-use and bundled fonts), the embedding permissions and that only http(s) links are produced. The PDF test, which runs when a browser is available, checks that the licence links are clickable.
 
-## Built with AI-assisted workflows
+## About
 
-Made by a motion and creative technologist working with AI agents. The measuring rules come from real use: choosing a title typeface among ~800 families.
+Made by The Jungle Fruit, a motion and creative technologist. The measuring rules come from real use: choosing a title typeface among ~800 families.
 
 Licence: GPL-3.0-or-later (see `LICENSE`) · fonts in `tests/fonts` under OFL 1.1
 
