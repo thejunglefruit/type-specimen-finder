@@ -103,3 +103,5 @@ The tests use four fonts under the SIL Open Font License, bundled in `tests/font
 Designed and directed by a motion and creative technologist, with code written in pair with an AI coding agent. The measuring rules come from real use: choosing a title typeface among ~800 families.
 
 Licence: GPL-3.0-or-later (see `LICENSE`) · fonts in `tests/fonts` under OFL 1.1
+
+**Commercial licence.** If you want to use it in a closed product without the GPL obligations, a commercial licence is available: thejunglefruit@proton.me
