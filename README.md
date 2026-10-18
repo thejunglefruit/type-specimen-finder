@@ -100,7 +100,7 @@ The tests use four fonts under the SIL Open Font License, bundled in `tests/font
 
 ## Built with AI-assisted workflows
 
-Designed and directed by a motion and creative technologist, with code written in pair with an AI coding agent. The measuring rules come from real use: choosing a title typeface among ~800 families.
+Made by a motion and creative technologist working with AI agents. The measuring rules come from real use: choosing a title typeface among ~800 families.
 
 Licence: GPL-3.0-or-later (see `LICENSE`) · fonts in `tests/fonts` under OFL 1.1
 
